@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+ <html>
+  <head>
+    <title>Just an element with a click</title>
+    <meta charset="utf-8">
+    <link href="http://fonts.googleapis.com/css?family=Annie Use Your Telescope&subset=latin" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <ul>
+      <li>Bear claw tart marshmallow pastry.</li>
+      <li>I love candy canes. Jelly I love I love gingerbread dragée.</li>
+      <li>I love marshmallow chupa chups cheesecake I love.</li>
+      <li>Soufflé lollipop wypas donut tootsie roll caramels. Biscuit fruitcake I love.</li>
+    </ul>
+    <script>
+      var list = document.querySelector('ul');
+      var elements = list.querySelectorAll('li');
+      
+      // without delegation - add events to every list item
+      /*for (var i = 0, l = elements.length; i < l; i++) {
+        elements[i].addEventListener('click', toggleSlide);
+      }*/
+
+      // with delegation - add event to parent element
+      list.addEventListener('click', function(evt) {
+        if (evt.target.nodeName === 'LI') {
+          toggleSlide(evt);
+        }
+      });
+
+      addElements();
+
+      function toggleSlide(evt) {
+        evt.target.classList.toggle('slide');
+      }
+
+      function addElements() {
+
+        var content = [
+          'Cupcake icing oat cake sweet roll liquorice.',
+          'Danish I love jelly macaroon jujubes powder.',
+          'Faworki chocolate bar jelly lemon drops.',
+          'Jelly chocolate bar tiramisu brownie.'
+        ];
+
+        var fragment = document.createDocumentFragment();
+        var item;
+
+        for (var i = 0, l = content.length; i < l; i++) {
+          item = document.createElement('li');
+          item.classList.add('new');
+          item.innerHTML = content[i];
+          fragment.appendChild(item);
+        }
+
+        list.appendChild(fragment);
+      }
+    </script>
+  </body>
+</html>

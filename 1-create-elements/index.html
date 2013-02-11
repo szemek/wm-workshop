@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+ <html>
+  <head>
+    <title>Create elements!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <script>
+
+      (function() {
+        var list;
+        var item;
+        var content = [
+              'Bear claw tart marshmallow pastry.',
+              'I love candy canes. Jelly I love I love gingerbread dragée.',
+              'I love marshmallow chupa chups cheesecake I love.',
+              'Soufflé lollipop wypas donut tootsie roll caramels. Biscuit fruitcake I love.',
+              'Cupcake icing oat cake sweet roll liquorice.',
+              'Danish I love jelly macaroon jujubes powder.',
+              'Faworki chocolate bar jelly lemon drops.',
+              'Jelly chocolate bar tiramisu brownie.'
+            ];
+        //list = document.querySelector('ul');
+        //var fragment;
+        //fragment = document.createDocumentFragment();
+
+        list = document.createElement('ul');
+
+        for (var i = 0, l = content.length; i < l; i++) {
+          item = document.createElement('li');
+          item.innerHTML = content[i];
+          list.appendChild(item);
+        }
+
+        document.body.appendChild(list);
+      })();
+    </script>
+  </body>
+</html>

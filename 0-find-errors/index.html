@@ -1,0 +1,31 @@
+ <!DOCTYPE html>
+ <html>
+  <head>
+    <title>Fixmefixme</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="scene"></div>
+    <script>
+      (function() {
+        var dollProto = document.createElement()'div';
+        dolProto.classList.add('doll');
+
+        var scene = document.getElementById('scene');
+        scene.className = 'scene';
+
+        for (var i = 1; i <= 8; i++) {
+          creatDoll(i);
+        }
+        }
+
+        function createDoll(index) 
+          var doll = dollProto.cloneNode(true);
+          doll.style.backgroundImage = url(img/PNG/Matryoshka_0' + index + '.png)';
+          scene.appendChild(doll);
+        }
+      })();
+    </script>
+  </body>
+</html>
